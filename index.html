@@ -14,20 +14,28 @@
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="logo-container">
-            <span class="logo-main">Dott.ssa Sara Ciabatti</span>
-            <span class="logo-sub">Psicologa e Psicoterapeuta</span>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#intro">Percorso</a></li>
-                <li><a href="#gallery">Lo Studio</a></li>
-                <li><a href="#about">Approccio</a></li>
-                <li><a href="#contact" class="btn-gold">Contatti</a></li>
-            </ul>
-        </nav>
-    </header>
+<header class="navbar">
+    <div class="logo-container">
+        <span class="logo-main">Dott.ssa Sara Ciabatti</span>
+        <span class="logo-sub">Psicologa e Psicoterapeuta</span>
+    </div>
+    
+    <!-- NUOVO: Bottone Hamburger -->
+    <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav id="nav-menu">
+        <ul>
+            <li><a href="#intro">Percorso</a></li>
+            <li><a href="#gallery">Lo Studio</a></li>
+            <li><a href="#about">Approccio</a></li>
+            <li><a href="#contact" class="btn-gold">Contatti</a></li>
+        </ul>
+    </nav>
+</header>
 
     <main>
         <!-- SEZIONE INTRO -->
@@ -83,5 +91,22 @@
         </div>
     </footer>
 
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('is-active');
+    });
+
+    // Chiude il menu quando si clicca su un link
+    document.querySelectorAll('nav ul li a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('is-active');
+        });
+    });
+</script>
 </body>
 </html>
